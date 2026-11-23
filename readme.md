@@ -2,6 +2,30 @@
 
 A simple CLI tool to generate customized random markings useful for 3D scans of interior environments.
 
+## Requirements
+production:
+```
+Pillow=13.0.0
+```
+
+dev:
+```
+Pillow=13.0.0
+flake8
+pytest
+```
+
+## Installation
+```bash
+git clone https://github.com/LouisGJBertrand/qr_mark.git
+cd qr_mark
+pip install -r requirements.txt
+```
+recommended: setup venv
+```bash
+python -m venv venv
+```
+
 ## Usage
 
 ```bash
