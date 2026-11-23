@@ -109,6 +109,9 @@ def test_pipeline_save():
     expected_output_files = ["000.png", "001.png", "002.png", "003.png", "004.png", "005.png", "006.png", "007.png"]
     output_files = [f for f in listdir(output_path) if isfile(join(output_path, f))]
 
+    expected_output_files.sort()
+    output_files.sort()
+
     assert output_files == expected_output_files
 
 def test_cli_args():
