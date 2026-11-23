@@ -1,3 +1,5 @@
+import os
+
 from qr_mark.qr_gen import QrGen
 from qr_mark.qr_settings import QrSettings
 from qr_mark.qr_pipeline import QrPipeline
@@ -36,6 +38,8 @@ def test_qr_rect():
     assert rect is None
 
 def test_qr_make_image():
+    os.makedirs("tests/data")
+    
     pixels = QrGen.qr_gen(64)
     rect = QrGen.get_pixel_square_size(pixels)
 
