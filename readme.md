@@ -10,12 +10,12 @@ A simple CLI tool to generate customized random markings useful for 3D scans of 
 ## Requirements
 production:
 ```
-Pillow=13.0.0
+Pillow==13.0.0
 ```
 
 dev:
 ```
-Pillow=13.0.0
+Pillow==13.0.0
 flake8
 pytest
 ```
