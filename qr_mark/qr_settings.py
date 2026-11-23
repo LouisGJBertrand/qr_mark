@@ -10,7 +10,7 @@ class QrSettings:
         self.x = x
         self.y = y
 
-    def compare(self, other: QrSettings) -> bool:
+    def compare(self, other) -> bool:
         return (self.x == other.x
                 and self.y == other.y
                 and self.count == other.count
