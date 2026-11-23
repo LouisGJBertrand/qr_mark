@@ -38,37 +38,42 @@ def test_qr_rect():
     assert rect is None
 
 def test_qr_make_image():
-    os.makedirs("tests/data")
+    os.makedirs("tests/data", exist_ok=True)
     
     pixels = QrGen.qr_gen(64)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_1.png")
+    assert isfile(f"tests/data/generate_1.png")
 
     pixels = QrGen.qr_gen(256)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_2.png")
+    assert isfile(f"tests/data/generate_2.png")
 
     pixels = QrGen.qr_gen(9)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_3.png")
+    assert isfile(f"tests/data/generate_3.png")
 
     pixels = QrGen.qr_gen(25)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_4.png")
+    assert isfile(f"tests/data/generate_4.png")
 
     pixels = QrGen.qr_gen(16)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_5.png")
+    assert isfile(f"tests/data/generate_5.png")
 
 def test_settings_format():
     settings = QrSettings()
