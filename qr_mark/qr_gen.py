@@ -1,18 +1,18 @@
 import math
 import random
-from cmath import rect
 
 import PIL.Image
+
 
 class QrGen:
     def __init__(self):
         pass
 
     @staticmethod
-    def qr_gen(total_size = 16):
+    def qr_gen(total_size=16):
         pixels = []
         for i in range(total_size):
-            pixels.append(random.randint(0,1))
+            pixels.append(random.randint(0, 1))
 
         return pixels
 

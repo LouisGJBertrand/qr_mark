@@ -3,6 +3,7 @@ import os
 from qr_mark.qr_gen import QrGen
 from qr_mark.qr_settings import QrSettings
 
+
 class QrPipeline:
     def __init__(self, settings=QrSettings()):
         self.settings = settings
@@ -28,7 +29,7 @@ class QrPipeline:
         i = 0
         for image in images:
             image.save(self.settings.get_output(i))
-            i+=1
+            i += 1
 
     def make_dirs(self):
         os.makedirs(os.path.dirname(self.settings.output), exist_ok=True)

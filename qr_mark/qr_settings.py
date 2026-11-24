@@ -3,7 +3,7 @@ from qr_mark.qr_gen import QrGen
 
 class QrSettings:
 
-    def __init__(self, count = 8, output = "./out/mark_%03d.png", size = 25, x = None, y = None):
+    def __init__(self, count=8, output="./out/mark_%03d.png", size=25, x=None, y=None):
         self.count = count
         self.output = output
         self.x = x
@@ -13,14 +13,12 @@ class QrSettings:
         else:
             self.size = size
 
-
     def compare(self, other) -> bool:
         return (self.x == other.x
                 and self.y == other.y
                 and self.count == other.count
                 and self.output == other.output
                 and self.size == other.size)
-
 
     def get_size_rect(self):
         if self.x is None and self.y is None and self.size is None:

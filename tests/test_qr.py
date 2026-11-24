@@ -8,12 +8,14 @@ from qr_mark.qr_cli import QrCLI
 from os import listdir
 from os.path import isfile, join
 
+
 def test_qr_gen():
     pixels = QrGen.qr_gen()
     assert pixels.__len__() == 16
 
     pixels = QrGen.qr_gen(64)
     assert pixels.__len__() == 64
+
 
 def test_qr_rect():
     pixels = QrGen.qr_gen(64)
@@ -37,48 +39,51 @@ def test_qr_rect():
     rect = QrGen.get_pixel_square_size(pixels)
     assert rect is None
 
+
 def test_qr_make_image():
     os.makedirs("tests/data", exist_ok=True)
-    
+
     pixels = QrGen.qr_gen(64)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_1.png")
-    assert isfile(f"tests/data/generate_1.png")
+    assert isfile("tests/data/generate_1.png")
 
     pixels = QrGen.qr_gen(256)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_2.png")
-    assert isfile(f"tests/data/generate_2.png")
+    assert isfile("tests/data/generate_2.png")
 
     pixels = QrGen.qr_gen(9)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_3.png")
-    assert isfile(f"tests/data/generate_3.png")
+    assert isfile("tests/data/generate_3.png")
 
     pixels = QrGen.qr_gen(25)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_4.png")
-    assert isfile(f"tests/data/generate_4.png")
+    assert isfile("tests/data/generate_4.png")
 
     pixels = QrGen.qr_gen(16)
     rect = QrGen.get_pixel_square_size(pixels)
 
     image = QrGen.make_image(pixels, rect[0], rect[1])
     image.save("tests/data/generate_5.png")
-    assert isfile(f"tests/data/generate_5.png")
+    assert isfile("tests/data/generate_5.png")
+
 
 def test_settings_format():
     settings = QrSettings()
 
     assert settings.get_output(3) == "./out/mark_003.png"
+
 
 def test_settings_size():
     settings = QrSettings(size=25)
@@ -93,11 +98,12 @@ def test_settings_size():
     settings = QrSettings(size=42, y=6)
     assert settings.get_size_rect() == [7, 6]
 
-    settings = QrSettings(x= 7, y= 7)
+    settings = QrSettings(x=7, y=7)
     assert settings.get_size_rect() == [7, 7]
 
-    settings = QrSettings(x= 6, y= 7)
+    settings = QrSettings(x=6, y=7)
     assert settings.get_size_rect() == [6, 7]
+
 
 def test_pipeline_gen():
     settings = QrSettings(count=8)
@@ -118,6 +124,7 @@ def test_pipeline_gen():
     images = pipeline.generate_images()
     assert images.__len__() == 1
 
+
 def test_pipeline_save():
     settings = QrSettings(count=8, output="./tests/data/batch/%03d.png")
     pipeline = QrPipeline(settings)
@@ -134,6 +141,7 @@ def test_pipeline_save():
     output_files.sort()
 
     assert output_files == expected_output_files
+
 
 def test_cli_args():
     expected_settings = QrSettings()
