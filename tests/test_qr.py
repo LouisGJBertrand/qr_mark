@@ -159,6 +159,11 @@ def test_cli_args():
 
     assert actual_settings.compare(expected_settings)
 
+    expected_settings = QrSettings(x=16, y=32)
+    actual_settings = QrCLI.get_settings_from_cli_args(["-x", "16", "-y", "32"])
+
+    assert actual_settings.compare(expected_settings)
+
     try:
         # check for not complete arguments
         QrCLI.get_settings_from_cli_args(["-s", "50", "-y"])

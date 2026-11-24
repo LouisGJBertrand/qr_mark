@@ -14,31 +14,37 @@ class QrCLI:
 
     @staticmethod
     def get_settings_from_cli_args(args):
-        settings = QrSettings()
+        output = "./out/mark_%03d.png"
+        count = 8
+        size = 25
+        x = None
+        y = None
 
         i = 0
         for arg in args:
             if arg == "-o":
-                settings.output = QrCLI.parse_output_args(args, i)
+                output = QrCLI.parse_output_args(args, i)
                 i += 1
                 continue
             if arg == "-c":
-                settings.count = QrCLI.parse_count_args(args, i)
+                count = QrCLI.parse_count_args(args, i)
                 i += 1
                 continue
             if arg == "-s":
-                settings.size = QrCLI.parse_size_args(args, i)
+                size = QrCLI.parse_size_args(args, i)
                 i += 1
                 continue
             if arg == "-x":
-                settings.x = QrCLI.parse_x_args(args, i)
+                x = QrCLI.parse_x_args(args, i)
                 i += 1
                 continue
             if arg == "-y":
-                settings.y = QrCLI.parse_y_args(args, i)
+                y = QrCLI.parse_y_args(args, i)
                 i += 1
                 continue
             i += 1
+
+        settings = QrSettings(count=count, output=output, size=size, x=x, y=y)
         return settings
 
     @staticmethod

@@ -13,6 +13,10 @@ class QrSettings:
         else:
             self.size = size
 
+    def fix_size_from_x_y(self):
+        if self.x is not None and self.y is not None:
+            self.size = self.x * self.y
+
     def compare(self, other) -> bool:
         return (self.x == other.x
                 and self.y == other.y
