@@ -34,6 +34,9 @@ class QrGen:
     def make_image(pixels, width, height):
         image = PIL.Image.new("1", (width, height))
 
+        if len(pixels) != (width * height):
+            raise Exception(str(len(pixels)) + "::" + str(width * height))
+
         for y in range(height):
             for x in range(width):
                 image.putpixel((x, y), pixels[y * width + x])

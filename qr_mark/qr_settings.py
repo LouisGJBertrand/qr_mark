@@ -6,9 +6,13 @@ class QrSettings:
     def __init__(self, count = 8, output = "./out/mark_%03d.png", size = 25, x = None, y = None):
         self.count = count
         self.output = output
-        self.size = size
         self.x = x
         self.y = y
+        if x is not None and y is not None:
+            self.size = x * y
+        else:
+            self.size = size
+
 
     def compare(self, other) -> bool:
         return (self.x == other.x

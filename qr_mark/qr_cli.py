@@ -4,13 +4,7 @@ from qr_mark.qr_pipeline import QrPipeline
 class QrCLI:
     @staticmethod
     def main(args):
-        settings = QrSettings()
-        try:
-            settings = QrCLI.get_settings_from_cli_args(args)
-        except Exception as e:
-            print("an error has occurred")
-            print(e)
-            exit(1)
+        settings = QrCLI.get_settings_from_cli_args(args)
 
         pipeline = QrPipeline(settings)
 

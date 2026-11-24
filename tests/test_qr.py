@@ -106,6 +106,18 @@ def test_pipeline_gen():
     images = pipeline.generate_images()
     assert images.__len__() == 8
 
+    settings = QrSettings(x=5, size=10)
+    pipeline = QrPipeline(settings)
+
+    images = pipeline.generate_images()
+    assert images.__len__() == 8
+
+    settings = QrSettings(count=1, x=16, y=32)
+    pipeline = QrPipeline(settings)
+
+    images = pipeline.generate_images()
+    assert images.__len__() == 1
+
 def test_pipeline_save():
     settings = QrSettings(count=8, output="./tests/data/batch/%03d.png")
     pipeline = QrPipeline(settings)

@@ -13,6 +13,10 @@ class QrPipeline:
         for i in range(self.settings.count):
             pixels = QrGen.qr_gen(self.settings.size)
             rect = self.settings.get_size_rect()
+
+            if rect is None:
+                raise Exception("invalid size, can't calculate image size")
+
             image = QrGen.make_image(pixels, rect[0], rect[1])
 
             images.append(image)
