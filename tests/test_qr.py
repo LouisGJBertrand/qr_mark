@@ -138,3 +138,9 @@ def test_cli_args():
     actual_settings = QrCLI.get_settings_from_cli_args(["-s", "50", "-y", "5"])
 
     assert actual_settings.compare(expected_settings)
+
+    try:
+        # check for not complete arguments
+        QrCLI.get_settings_from_cli_args(["-s", "50", "-y"])
+    except Exception as e:
+        assert e.args[0] == "Invalid option -y, no value"
