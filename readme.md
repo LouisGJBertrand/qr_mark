@@ -117,3 +117,11 @@ pipeline.save_images(images)
 > instead of sticking scanning markings directly on the model, use the qr markings to match from afar.
 
 ![baseball scan from afar](ress/img/ball_3D_far.jpeg) ![baseball scan closeup](ress/img/ball_3D_closeup.jpeg)
+
+## Use of AI
+No AI is used to generate code.
+
+in this repo, Ai is used only for code quality (Mistral) along side flake8 and documentation correction (Gemini).
+
+## Licensing
+GPL 3.0
